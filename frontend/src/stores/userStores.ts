@@ -4,7 +4,7 @@ import type { User } from "../dto/User";
 export const useUserStore = defineStore("user", {
   state: () => ({
     user: {
-      id: "",
+      id: -1,
       name: "",
       phone: "",
       type: "",
@@ -16,14 +16,14 @@ export const useUserStore = defineStore("user", {
     },
     clearUser() {
       this.user = {
-        id: "",
+        id: -1,
         name: "",
         phone: "",
         type: "",
       };
     },
     isUserLoggedIn() {
-      return this.user.id !== "";
+      return this.user.id !== -1;
     },
     getUser() {
       return this.user;

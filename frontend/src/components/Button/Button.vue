@@ -7,11 +7,14 @@ const props = defineProps<{
   class?: string,
   isReset?: boolean,
   routerLink?: string,
-
+  isDisabled?: boolean
 }>()
 
 const emit = defineEmits(['click'])
 const buttonClass = computed(() => {
+  if(props.isDisabled){
+    return 'disabled-button select-button'
+  }
     if(props.class){
         return props.class
     }
@@ -25,10 +28,12 @@ const buttonClass = computed(() => {
 </script>
 
 <template>
+
+
     <RouterLink v-if="props.routerLink" :to="props.routerLink" class="router-link">
-        <button @click="emit('click')" :class="'router-link-button'">{{props.buttonText}}</button>
+        <button :title="props.title" @click="emit('click')" :class="'router-link-button'">{{props.buttonText}}</button>
     </RouterLink>
-    <button v-else @click="emit('click')" :class="buttonClass">{{props.buttonText}}</button>
+    <button v-else @click="emit('click')" :class="buttonClass" :title="props.title" :disabled="isDisabled">{{props.buttonText}}</button>
 </template>
 
 <style scoped>
@@ -58,12 +63,19 @@ const buttonClass = computed(() => {
     justify-content: center;
     text-decoration: none;
   }
+  .disabled-button {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  .disabled-button:hover {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
 
   
   button {
     width: 175px;
     margin: 20px;
-    font-weight: light;
     padding: 10px 20px;
     font-size: 1.2rem;
     border: none;

@@ -28,14 +28,6 @@ watch(
   }
 );
 
-const goHome = () => {
-  router.push("/");
-}
-
-const goLogin = () => {
-  router.push("/login");
-}
-
 const logout = () => {
   toast.success("Logged out successfully");
   emit("logout");
@@ -51,6 +43,9 @@ const logout = () => {
 <div class='logged-in-links' v-if="loggedIn">
         <p>Welcome {{user.name}}</p>
         <Button buttonText="Logout" @click="logout" />
+      <Button buttonText="Home" routerLink="/" />
+      <Button buttonText="Dashboard" routerLink="/dashboard" />
+
 </div>
 <div class='logged-out-links' v-else>
         <Button buttonText="Home" routerLink="/" />

@@ -28,6 +28,7 @@ const pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 
 const app = createApp(App);
+
 app.use(pinia);
 app.use(Toast, options);
 app.use(router);

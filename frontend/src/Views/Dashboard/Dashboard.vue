@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref, onMounted, watch } from "vue";
+  import { ref, onMounted } from "vue";
   import { useRouter } from "vue-router";
   import { useUserStore } from "../../stores/userStores.js";
   import Button from "../../components/Button/Button.vue";
@@ -21,11 +21,11 @@
       </h1>
       <h2>What would you like to do?</h2>
       <div class="options">
-        <Button  :buttonText="'View Trainees'" routerLink="/trainees/all" />
-        <Button v-if="user.type === 'admin'" buttonText="View Trainers" routerLink="all" />
-        <Button buttonText="View Workouts" routerLink="/workouts" />
-        <Button buttonText="Add Trainee" routerLink="/trainees/create" />
-        <Button v-if="user.type === 'admin'" buttonText="Add Trainer" routerLink="create" />
+        <Button  :buttonText="'View Trainees'" routerLink="/clients/all" />
+        <Button v-if="user.type === 'admin'" buttonText="View Instructors" routerLink="instructors/all" />
+        <Button buttonText="View Workouts" routerLink="/workouts/all" />
+        <Button buttonText="Add Trainee" routerLink="/clients/create" />
+        <Button v-if="user.type === 'admin'" buttonText="Add Instructor" routerLink="instructors/create" />
         <Button buttonText="Add Workout" routerLink="/workouts/create" />
       </div>
     </div>

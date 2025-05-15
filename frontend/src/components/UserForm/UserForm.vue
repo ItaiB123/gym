@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { errorHandler } from "../../utils/errorHandler";
-import { validateLogin } from "../../utils/validations";
+import { validateUser } from "../../utils/validations";
 import Button from "../Button/Button.vue";
 const name = ref("");
 const phone = ref("");
@@ -13,8 +13,7 @@ const props = defineProps<{
 }>()
 
 const onSubmit = () => {
-    console.log(name.value, phone.value);
-    let errors = validateLogin(name.value , phone.value);
+    let errors = validateUser(name.value , phone.value);
    if(errors.length === 0){
     emit("submit", { name: name.value, phone: phone.value });
 }else{

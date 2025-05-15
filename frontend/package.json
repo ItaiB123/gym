@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^11.0.2",
     "axios": "^1.9.0",
     "dayjs": "^1.11.13",
     "dotenv": "^16.5.0",
@@ -22,6 +23,7 @@
     "@types/node": "^22.15.17",
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
+    "sass-embedded": "^1.88.0",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
     "vue-tsc": "^2.2.8"
